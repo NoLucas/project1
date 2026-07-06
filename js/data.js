@@ -100,17 +100,123 @@ const MENUS = [
   },
 ];
 
+const MENU_STORAGE_KEY = "cafe-app:menus";
+
+function getCategories() {
+  return [...CATEGORIES];
+}
+
+function getSeedMenus() {
+  return MENUS.map((menu) => ({ ...menu }));
+}
+
+function getAllMenus() {
+  const raw = localStorage.getItem(MENU_STORAGE_KEY);
+
+  if (!raw) {
+    const seedMenus = getSeedMenus();
+    localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(seedMenus));
+    return seedMenus;
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      throw new Error("Invalid menu data");
+    }
+    return parsed;
+  } catch {
+    const seedMenus = getSeedMenus();
+    localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(seedMenus));
+    return seedMenus;
+  }
+}
+
+function saveMenus(menus) {
+  localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(menus));
+  return menus;
+}
+
+function generateMenuId(name) {
+  const base = String(name || "menu")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "") || "menu";
+
+  const menus = getAllMenus();
+  let nextId = base;
+  let index = 2;
+
+  while (menus.some((menu) => menu.id === nextId)) {
+    nextId = `${base}-${index}`;
+    index += 1;
+  }
+
+  return nextId;
+}
+
+function createMenu(menuInput) {
+  const menus = getAllMenus();
+  const nextMenu = {
+    id: menuInput.id || generateMenuId(menuInput.name),
+    categoryId: menuInput.categoryId,
+    name: menuInput.name,
+    price: Number(menuInput.price),
+    description: menuInput.description || "",
+    image: menuInput.image || "",
+    soldOut: Boolean(menuInput.soldOut),
+  };
+
+  menus.push(nextMenu);
+  saveMenus(menus);
+  return nextMenu;
+}
+
+function updateMenu(menuId, menuInput) {
+  const menus = getAllMenus();
+  const index = menus.findIndex((menu) => menu.id === menuId);
+
+  if (index === -1) {
+    return null;
+  }
+
+  menus[index] = {
+    ...menus[index],
+    ...menuInput,
+    price: Number(menuInput.price ?? menus[index].price),
+    soldOut: Boolean(menuInput.soldOut),
+  };
+
+  saveMenus(menus);
+  return menus[index];
+}
+
+function deleteMenu(menuId) {
+  const menus = getAllMenus().filter((menu) => menu.id !== menuId);
+  saveMenus(menus);
+  return menus;
+}
+
+function toggleMenuSoldOut(menuId) {
+  const menu = getMenuById(menuId);
+  if (!menu) return null;
+  return updateMenu(menuId, { soldOut: !menu.soldOut });
+}
+
 function getCategoryById(categoryId) {
   return CATEGORIES.find((category) => category.id === categoryId) || null;
 }
 
 function getMenuById(menuId) {
-  return MENUS.find((menu) => menu.id === menuId) || null;
+  return getAllMenus().find((menu) => menu.id === menuId) || null;
 }
 
 function getMenusByCategory(categoryId) {
   if (!categoryId || categoryId === "all") {
-    return MENUS;
+    return getAllMenus();
   }
-  return MENUS.filter((menu) => menu.categoryId === categoryId);
+  return getAllMenus().filter((menu) => menu.categoryId === categoryId);
 }
