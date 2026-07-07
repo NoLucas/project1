@@ -149,7 +149,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
-  max-height: 420px;
+  max-height: 720px;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: var(--space-xs);
@@ -194,7 +194,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 180px;
+  height: 240px;
   font-size: 2rem;
   color: var(--color-primary-light);
   background: var(--color-surface-alt);
