@@ -65,7 +65,10 @@ cafe-app/
 │           ├── list.js
 │           ├── detail.html           # 주문 상세
 │           ├── detail.css
-│           └── detail.js
+│           ├── detail.js
+│           ├── edit.html             # 주문 상태 수정
+│           ├── edit.css
+│           └── edit.js
 │
 ├── 📦 공유 자원
 │   ├── css/
@@ -168,3 +171,6 @@ cafe-app/
 - [x] `admin/orders/detail.html` — 주문 상세
 - [x] `admin/orders/detail.css`
 - [x] `admin/orders/detail.js`
+- [x] `admin/orders/edit.html` — 주문 상태 수정
+- [x] `admin/orders/edit.css`
+- [x] `admin/orders/edit.js`

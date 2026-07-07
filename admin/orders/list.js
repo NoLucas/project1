@@ -62,6 +62,7 @@ function renderList() {
             <span class="order-card-total">${formatPrice(getOrderTotalPrice(order))}</span>
             <div class="action-group">
               <a class="action-button" href="./detail.html?id=${encodeURIComponent(order.id)}">상세 보기</a>
+              <a class="action-button" href="./edit.html?id=${encodeURIComponent(order.id)}">수정</a>
               ${
                 nextStatus
                   ? `<button class="action-button" type="button" data-action="advance" data-id="${order.id}">${nextStatus}(으)로 변경</button>`

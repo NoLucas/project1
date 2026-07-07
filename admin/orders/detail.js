@@ -1,4 +1,5 @@
 const content = document.getElementById("content");
+const editLink = document.getElementById("editLink");
 const params = new URLSearchParams(window.location.search);
 const orderId = params.get("id");
 
@@ -9,24 +10,12 @@ function renderEmpty() {
       <p>삭제되었거나 잘못된 접근일 수 있습니다.</p>
     </section>
   `;
-}
-
-function renderStatusActions(order) {
-  return ORDER_STATUSES.map(
-    (status) => `
-      <button
-        class="status-button ${status === order.status ? "active" : ""}"
-        type="button"
-        data-action="set-status"
-        data-status="${status}"
-      >
-        ${status}
-      </button>
-    `
-  ).join("");
+  editLink.style.display = "none";
 }
 
 function renderDetail(order) {
+  editLink.href = `./edit.html?id=${encodeURIComponent(order.id)}`;
+
   const itemRows = order.items
     .map((item) => {
       const menu = getMenuById(item.menuId);
@@ -62,22 +51,8 @@ function renderDetail(order) {
         <span class="total-label">총 결제 금액</span>
         <span class="total-value">${formatPrice(getOrderTotalPrice(order))}</span>
       </div>
-
-      <h2 class="section-title">상태 변경</h2>
-      <div class="status-actions" id="statusActions">${renderStatusActions(order)}</div>
     </section>
   `;
-
-  document.getElementById("statusActions").addEventListener("click", (event) => {
-    const button = event.target.closest("[data-action='set-status']");
-    if (!button) return;
-
-    const { status } = button.dataset;
-    if (status === order.status) return;
-
-    updateOrderStatus(order.id, status);
-    renderDetail(getOrderById(order.id));
-  });
 }
 
 const order = orderId ? getOrderById(orderId) : null;
