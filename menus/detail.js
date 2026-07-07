@@ -25,7 +25,9 @@ function renderMenuDetail() {
   const soldOut = currentMenu.soldOut;
 
   detailEl.innerHTML = `
-    <div class="menu-detail-image">☕</div>
+    <div class="menu-detail-image">
+      <img class="menu-image" src="../${getMenuImagePath(currentMenu)}" alt="" />
+    </div>
     <div class="menu-detail-body">
       ${category ? `<span class="menu-detail-category">${category.name}</span>` : ""}
       <h2 class="menu-detail-name">${currentMenu.name}</h2>
@@ -104,19 +106,6 @@ function bindAddToCartEvent() {
       addToCartBtn.disabled = false;
     }, 1200);
   });
-}
-
-// ===== 장바구니 배지 =====
-function updateCartBadge() {
-  const badgeEl = document.getElementById("cartBadge");
-  const count = getCartTotalCount();
-
-  if (count > 0) {
-    badgeEl.textContent = count > 99 ? "99+" : String(count);
-    badgeEl.hidden = false;
-  } else {
-    badgeEl.hidden = true;
-  }
 }
 
 init();

@@ -33,17 +33,4 @@ function renderOrderList() {
     .join("");
 }
 
-// ===== 장바구니 배지 =====
-function updateCartBadge() {
-  const badgeEl = document.getElementById("cartBadge");
-  const count = getCartTotalCount();
-
-  if (count > 0) {
-    badgeEl.textContent = count > 99 ? "99+" : String(count);
-    badgeEl.hidden = false;
-  } else {
-    badgeEl.hidden = true;
-  }
-}
-
 init();

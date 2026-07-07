@@ -14,11 +14,11 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
-    "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   color: var(--color-text);
-  background: var(--color-bg);
+  background: var(--gradient-page);
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -74,6 +74,11 @@ img {
   --color-danger: #c0553f;
   --color-warning: #d9a441;
 
+  /* RGB channels (for rgba() overlays) */
+  --color-primary-rgb: 138, 90, 59;
+  --color-primary-light-rgb: 201, 154, 108;
+  --color-danger-rgb: 192, 85, 63;
+
   /* Glass morphism */
   --glass-bg: rgba(255, 250, 243, 0.6);
   --glass-border: rgba(255, 255, 255, 0.4);
@@ -99,6 +104,10 @@ img {
   --shadow-lg: 0 8px 32px rgba(58, 43, 30, 0.14);
 
   /* Typography */
+  --font-body: "Noto Sans KR", "Pretendard", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+  --font-display: "Noto Serif KR", var(--font-body);
+
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.25rem;
@@ -108,6 +117,14 @@ img {
   /* Layout */
   --container-max: 480px;
   --header-height: 56px;
+
+  /* Decorative gradient wash (shared page background) */
+  --gradient-page: radial-gradient(
+      circle at top,
+      rgba(var(--color-primary-light-rgb), 0.18),
+      transparent 30%
+    ),
+    var(--color-bg);
 
   /* Transition */
   --transition-fast: 0.15s ease;

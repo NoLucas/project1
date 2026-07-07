@@ -51,7 +51,9 @@ function renderMenuGrid() {
           href="detail.html?id=${encodeURIComponent(menu.id)}"
         >
           ${menu.soldOut ? `<span class="sold-out-badge">품절</span>` : ""}
-          <div class="menu-card-image">☕</div>
+          <div class="menu-card-image">
+            <img class="menu-image" src="../${getMenuImagePath(menu)}" alt="" />
+          </div>
           <div class="menu-card-body">
             <span class="menu-card-name">${menu.name}</span>
             <p class="menu-card-desc">${menu.description}</p>
@@ -61,19 +63,6 @@ function renderMenuGrid() {
       `
     )
     .join("");
-}
-
-// ===== 장바구니 배지 =====
-function updateCartBadge() {
-  const badgeEl = document.getElementById("cartBadge");
-  const count = getCartTotalCount();
-
-  if (count > 0) {
-    badgeEl.textContent = count > 99 ? "99+" : String(count);
-    badgeEl.hidden = false;
-  } else {
-    badgeEl.hidden = true;
-  }
 }
 
 init();

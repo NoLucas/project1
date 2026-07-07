@@ -19,6 +19,9 @@ function renderDetail(menu) {
 
   content.innerHTML = `
     <section class="detail-card">
+      <div class="detail-image">
+        <img class="menu-image" src="../../${getMenuImagePath(menu)}" alt="" />
+      </div>
       <div class="detail-top">
         <div>
           <p class="eyebrow">Menu Detail</p>

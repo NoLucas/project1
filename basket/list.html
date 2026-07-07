@@ -4,14 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>장바구니 - 카페 앱</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="list.css" />
 </head>
 <body>
   <header class="page-header glass">
-    <a href="../menus/list.html" class="icon-btn" aria-label="메뉴로">‹</a>
+    <a href="../menus/list.html" class="icon-btn" aria-label="메뉴로">
+      <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
     <h1>장바구니</h1>
-    <button class="icon-btn" id="clearCartBtn" type="button" aria-label="장바구니 비우기">🗑</button>
+    <button class="icon-btn" id="clearCartBtn" type="button" aria-label="장바구니 비우기">
+      <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/></svg>
+    </button>
   </header>
 
   <main class="container basket-page">

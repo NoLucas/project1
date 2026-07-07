@@ -113,7 +113,7 @@ function renderBasketItem(item) {
   return `
     <article class="basket-item">
       <div class="basket-item-top">
-        <div class="item-emoji">${item.menu.categoryId === "dessert" ? "🥐" : item.menu.categoryId === "tea" ? "🍵" : item.menu.categoryId === "ade" ? "🍹" : "☕"}</div>
+        <div class="item-emoji"><img class="menu-image" src="../${getMenuImagePath(item.menu)}" alt="" /></div>
         <div>
           ${item.category ? `<span class="item-category">${item.category.name}</span>` : ""}
           <h3 class="item-name">${item.menu.name}</h3>

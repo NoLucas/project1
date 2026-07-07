@@ -4,22 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>마이페이지 - 카페 앱</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
   <header class="page-header glass">
-    <a href="../index.html" class="icon-btn" aria-label="홈으로">‹</a>
+    <a href="../index.html" class="icon-btn" aria-label="홈으로">
+      <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
     <h1>마이페이지</h1>
     <a href="../basket/list.html" class="icon-btn cart-btn" aria-label="장바구니">
-      🛒
+      <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       <span class="cart-badge" id="cartBadge" hidden>0</span>
     </a>
   </header>
 
   <main class="container">
     <section class="profile-card glass">
-      <div class="profile-avatar">☕</div>
+      <div class="profile-avatar">
+        <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </div>
       <div class="profile-info">
         <p class="profile-name">게스트님</p>
         <p class="profile-desc">로그인하고 주문 내역을 더 편하게 관리해보세요.</p>
@@ -39,19 +51,19 @@
 
     <nav class="menu-list">
       <a href="../orders/list.html" class="menu-item glass">
-        <span class="menu-item-icon">🧾</span>
+        <span class="menu-item-icon"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg></span>
         <span class="menu-item-label">주문 내역</span>
-        <span class="menu-item-arrow">›</span>
+        <span class="menu-item-arrow"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
       </a>
       <a href="../basket/list.html" class="menu-item glass">
-        <span class="menu-item-icon">🛒</span>
+        <span class="menu-item-icon"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
         <span class="menu-item-label">장바구니</span>
-        <span class="menu-item-arrow">›</span>
+        <span class="menu-item-arrow"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
       </a>
       <a href="../menus/list.html" class="menu-item glass">
-        <span class="menu-item-icon">☕</span>
+        <span class="menu-item-icon"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/></svg></span>
         <span class="menu-item-label">전체 메뉴 보기</span>
-        <span class="menu-item-arrow">›</span>
+        <span class="menu-item-arrow"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
       </a>
     </nav>
 
@@ -59,19 +71,19 @@
       <h2 class="section-title">고객 지원</h2>
       <nav class="menu-list">
         <button class="menu-item glass" type="button" data-info="notice">
-          <span class="menu-item-icon">📢</span>
+          <span class="menu-item-icon"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h3l5 4V6l-5 4H3z"/><path d="M16 9a3 3 0 0 1 0 6"/><path d="M19 6a7 7 0 0 1 0 12"/></svg></span>
           <span class="menu-item-label">공지사항</span>
-          <span class="menu-item-arrow">›</span>
+          <span class="menu-item-arrow"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
         </button>
         <button class="menu-item glass" type="button" data-info="faq">
-          <span class="menu-item-icon">💬</span>
+          <span class="menu-item-icon"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-4.4 7.4 8.5 8.5 0 0 1-9.2-.9L3 21l1.9-4.4a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.3h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
           <span class="menu-item-label">자주 묻는 질문</span>
-          <span class="menu-item-arrow">›</span>
+          <span class="menu-item-arrow"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
         </button>
         <button class="menu-item glass" type="button" data-info="terms">
-          <span class="menu-item-icon">📄</span>
+          <span class="menu-item-icon"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span>
           <span class="menu-item-label">이용약관 및 정책</span>
-          <span class="menu-item-arrow">›</span>
+          <span class="menu-item-arrow"><svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
         </button>
       </nav>
     </section>

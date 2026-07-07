@@ -87,3 +87,18 @@ function getCartTotalPrice(getMenuByIdFn) {
     return total + menu.price * item.quantity;
   }, 0);
 }
+
+// ===== 장바구니 배지 (공용) =====
+function updateCartBadge() {
+  const badgeEl = document.getElementById("cartBadge");
+  if (!badgeEl) return;
+
+  const count = getCartTotalCount();
+
+  if (count > 0) {
+    badgeEl.textContent = count > 99 ? "99+" : String(count);
+    badgeEl.hidden = false;
+  } else {
+    badgeEl.hidden = true;
+  }
+}

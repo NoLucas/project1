@@ -13,19 +13,6 @@ function renderCartSummary() {
   document.getElementById("cartPrice").textContent = formatPrice(totalPrice);
 }
 
-// ===== 장바구니 배지 =====
-function updateCartBadge() {
-  const badgeEl = document.getElementById("cartBadge");
-  const count = getCartTotalCount();
-
-  if (count > 0) {
-    badgeEl.textContent = count > 99 ? "99+" : String(count);
-    badgeEl.hidden = false;
-  } else {
-    badgeEl.hidden = true;
-  }
-}
-
 // ===== 고객 지원 항목 =====
 function handleInfoClick(event) {
   const button = event.target.closest("[data-info]");

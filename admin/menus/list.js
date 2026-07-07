@@ -51,13 +51,16 @@ function renderList() {
       return `
         <article class="menu-card">
           <div class="menu-card-header">
-            <div>
-              <div class="menu-title-row">
-                <h3>${menu.name}</h3>
-                <span class="badge category">${category ? category.name : "미분류"}</span>
-                ${menu.soldOut ? '<span class="badge soldout">품절</span>' : ""}
+            <div class="menu-card-main">
+              <div class="menu-card-thumb"><img class="menu-image" src="../../${getMenuImagePath(menu)}" alt="" /></div>
+              <div>
+                <div class="menu-title-row">
+                  <h3>${menu.name}</h3>
+                  <span class="badge category">${category ? category.name : "미분류"}</span>
+                  ${menu.soldOut ? '<span class="badge soldout">품절</span>' : ""}
+                </div>
+                <p class="menu-description">${menu.description || "설명이 아직 없어요."}</p>
               </div>
-              <p class="menu-description">${menu.description || "설명이 아직 없어요."}</p>
             </div>
             <span class="price">${formatPrice(menu.price)}</span>
           </div>

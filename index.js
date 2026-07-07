@@ -17,7 +17,9 @@ function renderFeaturedMenus() {
           class="featured-card glass"
           href="menus/detail.html?id=${encodeURIComponent(menu.id)}"
         >
-          <div class="featured-card-image">☕</div>
+          <div class="featured-card-image">
+            <img class="menu-image" src="${getMenuImagePath(menu)}" alt="" />
+          </div>
           <div class="featured-card-body">
             <span class="featured-card-name">${menu.name}</span>
             <span class="featured-card-price">${formatPrice(menu.price)}</span>
@@ -26,19 +28,6 @@ function renderFeaturedMenus() {
       `
     )
     .join("");
-}
-
-// ===== 장바구니 배지 =====
-function updateCartBadge() {
-  const badgeEl = document.getElementById("cartBadge");
-  const count = getCartTotalCount();
-
-  if (count > 0) {
-    badgeEl.textContent = count > 99 ? "99+" : String(count);
-    badgeEl.hidden = false;
-  } else {
-    badgeEl.hidden = true;
-  }
 }
 
 // ===== 초기화 =====

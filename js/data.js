@@ -14,7 +14,7 @@ const MENUS = [
     name: "아메리카노",
     price: 4500,
     description: "깔끔하고 깊은 풍미의 에스프레소 베이스 커피",
-    image: "",
+    image: "assets/photos/americano.jpg",
     soldOut: false,
   },
   {
@@ -95,10 +95,23 @@ const MENUS = [
     name: "크루아상",
     price: 4200,
     description: "겹겹이 바삭한 버터 크루아상",
-    image: "",
+    image: "assets/photos/croissant.jpg",
     soldOut: false,
   },
 ];
+
+// ===== 카테고리 대표 사진 (루트 기준 경로) =====
+const CATEGORY_IMAGES = {
+  coffee: "assets/photos/cappuccino.jpg",
+  tea: "assets/photos/tea.jpg",
+  ade: "assets/photos/ade.jpg",
+  dessert: "assets/photos/cheesecake.jpg",
+};
+
+function getMenuImagePath(menu) {
+  if (!menu) return "";
+  return menu.image || CATEGORY_IMAGES[menu.categoryId] || "";
+}
 
 const MENU_STORAGE_KEY = "cafe-app:menus";
 
