@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>카페 앱</title>
   <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+  <a href="index.html" class="header-home-btn" aria-label="메인 화면으로 이동">
+    <span class="header-home-icon">☕</span>
+    <span>카페 앱</span>
+  </a>
   <header class="page-header glass">
-    <h1>☕ 카페 앱</h1>
+    <span class="header-spacer" aria-hidden="true"></span>
+    <h1 class="page-header-title">홈</h1>
     <a href="basket/list.html" class="icon-btn cart-btn" aria-label="장바구니">
       🛒
       <span class="cart-badge" id="cartBadge" hidden>0</span>
@@ -18,14 +24,14 @@
 
   <main class="container">
     <section class="hero glass">
-      <p class="hero-eyebrow">따뜻한 브라운 & 크림</p>
-      <h2 class="hero-title">오늘도 좋은 하루,<br />커피 한 잔과 함께</h2>
+      <p class="hero-eyebrow">오늘의 브루잉 & 디저트</p>
+      <h2 class="hero-title">오늘의 한 잔,<br />커피와 함께 여유를 즐겨보세요</h2>
       <a href="menus/list.html" class="hero-cta">메뉴 보러가기</a>
     </section>
 
     <nav class="quick-nav">
       <a href="menus/list.html" class="quick-nav-item glass">
-        <span class="quick-nav-icon">☕</span>
+        <span class="quick-nav-icon">📋</span>
         <span class="quick-nav-label">메뉴</span>
       </a>
       <a href="my/index.html" class="quick-nav-item glass">
