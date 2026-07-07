@@ -138,12 +138,12 @@ cafe-app/
 
 ### 5단계: 고객 - 주문 관리 시스템
 
-- [ ] `orders/list.html` — 주문 내역 목록
-- [ ] `orders/list.css`
-- [ ] `orders/list.js`
-- [ ] `orders/detail.html` — 주문 상세
-- [ ] `orders/detail.css`
-- [ ] `orders/detail.js`
+- [x] `orders/list.html` — 주문 내역 목록 (`5단계/list.html`에 임시 작업, 병합 시 `orders/`로 이동 필요)
+- [x] `orders/list.css` (`5단계/list.css`)
+- [x] `orders/list.js` (`5단계/list.js`)
+- [x] `orders/detail.html` — 주문 상세 (`5단계/detail.html`)
+- [x] `orders/detail.css` (`5단계/detail.css`)
+- [x] `orders/detail.js` (`5단계/detail.js`)
 
 ### 6단계: 고객 - 메인 페이지
 
